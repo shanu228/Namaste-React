@@ -1,11 +1,12 @@
 import ItemList from "./ItemList";
 
-const ResCategory = ({ data, showItems, setShowIndex }) => {
+const ResCategory = ({ data, showItems, setShowIndex, showClick }) => {
   //   console.log("From ResCategory Component", data);
 
   const handleClick = () => {
     // console.log("Clicked");
-    setShowIndex();
+    // setShowIndex();
+    showClick();
   };
 
   return (

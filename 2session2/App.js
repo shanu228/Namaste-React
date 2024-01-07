@@ -16,3 +16,14 @@ console.log(parent); // object
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(parent);
+
+/**
+ * npm init -y
+ * create App.js and index.html file
+ * npm install parcel
+ * npm i react
+ * npm i react-dom
+ * npx parcel index.html -> to start the server -> dev build
+ * npx parcel build index.html -> production build
+ *
+ */

@@ -4,7 +4,7 @@ import Button from "./Button";
 import { addItem } from "../redux/cartSlice";
 
 const ItemList = ({ items }) => {
-  //   console.log("From ItemList Component", items);
+  // console.log("From ItemList Component", items);
 
   // Subscribing to the store using a Selector
   const cartItems = useSelector((store) => store.cart.items);

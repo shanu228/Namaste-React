@@ -11,6 +11,8 @@ const Body = () => {
   const [restaurantList, setResList] = useState([]);
   const [filteredRes, SetFilteredRes] = useState([]);
 
+  console.log("filteredRes", filteredRes);
+
   const [searchText, setSearchText] = useState("");
 
   const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
@@ -114,12 +116,13 @@ const Body = () => {
             className="px-4 py-2 bg-gray-100 rounded-lg "
             onClick={() => {
               const filteredRestaurants = restaurantList.filter(
-                (restaurant) => restaurant.info.avgRating > 4.4
+                (restaurant) => restaurant.info.avgRating > 4.5
               );
               console.log(
                 "Top Rated Filtered Restaurants",
                 filteredRestaurants
               );
+              // SetFilteredRes(filteredRestaurants);
               SetFilteredRes(filteredRestaurants);
             }}
           >
@@ -149,7 +152,7 @@ const Body = () => {
               to={"/restaurants/" + restaurant.info.id}
             >
               {/* if the restaurant is promoted then add a promoted label to it */}
-              {restaurant.info.promoted ? (
+              {restaurant.info.avgRating > 4.5 ? (
                 <RestaurantCardPromoted resCard={restaurant} />
               ) : (
                 <RestaurantCard resCard={restaurant} />

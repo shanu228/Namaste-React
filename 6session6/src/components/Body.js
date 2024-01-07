@@ -92,10 +92,11 @@ const Body = () => {
           className="filter-btn"
           onClick={() => {
             const filteredRestaurants = restaurantList.filter(
-              (restaurant) => restaurant.info.avgRating > 4
+              (restaurant) => restaurant.info.avgRating > 4.4
             );
             console.log("Top Rated Filtered Restaurants", filteredRestaurants);
-            setResList(filteredRestaurants);
+            // setResList(filteredRestaurants);
+            SetFilteredRes(filteredRestaurants);
           }}
         >
           Top Rated Restaurant

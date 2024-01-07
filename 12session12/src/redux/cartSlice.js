@@ -15,6 +15,12 @@ const cartSlice = createSlice({
     },
 
     clearCart: (state, action) => {
+      // redux-toolkit -> either mutate the existing state or return a new state
+
+      // return {items: []}; -> items: []
+
+      // OR
+
       state.items.length = 0; // []
     },
   },

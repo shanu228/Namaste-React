@@ -106,13 +106,14 @@ const Body = () => {
             className="px-4 py-2 bg-gray-100 rounded-lg "
             onClick={() => {
               const filteredRestaurants = restaurantList.filter(
-                (restaurant) => restaurant.info.avgRating > 4
+                (restaurant) => restaurant.info.avgRating > 4.5
               );
               console.log(
                 "Top Rated Filtered Restaurants",
                 filteredRestaurants
               );
-              setResList(filteredRestaurants);
+              // setResList(filteredRestaurants);
+              SetFilteredRes(filteredRestaurants);
             }}
           >
             Top Rated Restaurant

@@ -46,7 +46,7 @@ const RestaurantMenu = () => {
       </p>
 
       {/* categories accordian */}
-      {categories.map((category, index) => {
+      {/* {categories.map((category, index) => {
         return (
           // controlled component
           <ResCategory
@@ -54,6 +54,26 @@ const RestaurantMenu = () => {
             data={category?.card?.card}
             showItems={index === showIndex ? true : false}
             setShowIndex={() => setShowIndex(index)}
+          />
+        );
+      })} */}
+
+      {categories.map((category, index) => {
+        return (
+          // controlled component
+          <ResCategory
+            key={category?.card?.card?.title}
+            data={category?.card?.card}
+            showItems={index === showIndex ? true : false}
+            showClick={
+              index == showIndex
+                ? () => {
+                    setShowIndex(null);
+                  }
+                : () => {
+                    setShowIndex(index);
+                  }
+            }
           />
         );
       })}

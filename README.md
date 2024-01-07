@@ -81,13 +81,77 @@ import {Component} from "path";
 
 # Setting up Testing in our app
 
-- Install React Testing Library
-- Installed jest
-- Installed Babel dependencies
-- Configure Babel
-- Configure Parcel Config file to disable default babel transpilation
-- Jest - npx jest --init
-- Install jsdom library
-- Install @babel/preset-react - to make JSX work in test cases
-- Include @babel/preset-react inside my babel config
-- npm i -D @testing-library/jest-dom
+1. Install React Testing Library -> npm i -D @testing-library/react
+
+<!-- ------ ------------->
+
+2. Installed jest -> npm i -D jest
+<!-- --------------- -->
+
+3. Installed Babel dependencies -> jest documentation -> go to "Using Babel" section -> npm install --save-dev babel-jest @babel/core @babel/preset-env
+
+<!-- ------------------ -->
+
+4. Configure Babel -> create babel.config.js file outside src folder and paste the following code (jest documentation) ->
+
+module.exports = {
+presets: [
+["@babel/preset-env", { targets: { node: "current" } }],
+["@babel/preset-react", { runtime: "automatic" }],
+],
+};
+
+<!-- ---------------------------- -->
+
+5. Configure Parcel Config file to disable default babel transpilation ->
+
+go to parcel documentation -> getstarted -> javaScript -> go to babel section (read it to get the better understanding)-> go to "usage with other tools" section -> create .parcelrc file outside src folder and copy the follwing code which is written at this path in the documentaion ->
+
+{
+"extends": "@parcel/config-default",
+"transformers": {
+"\*.{js,mjs,jsx,cjs,ts,tsx}": [
+"@parcel/transformer-js",
+"@parcel/transformer-react-refresh-wrap"
+]
+}
+}
+
+ <!-- ------------------------------- -->
+
+6. Jest configuration -> npx jest --init -> this command will initialise the jest and it will create a new configuration file for jest
+
+yes / no -> for js or ts
+select jsdom (browser-like)
+give "yes" to show the coverage report
+choose "babel" as provider
+give "yes" to automatically clear mock calls
+
+<!-- ------------------------------------- -->
+
+7. Install jsdom library -> npm install --save-dev jest-environment-jsdom
+
+<!-- ------------------------------------- -->
+
+8. Install @babel/preset-react - to make JSX work in test cases
+
+npm i -D babel/preset-react
+
+<!-- ---------------------------------------------- -->
+
+9. Include @babel/preset-react inside my babel config file->
+
+["@babel/preset-react", { runtime: "automatic" }] -> add this inside babel.config.js file
+
+module.exports = {
+presets: [
+["@babel/preset-env", { targets: { node: "current" } }],
+["@babel/preset-react", { runtime: "automatic" }],
+],
+};
+
+<!-- ------------------------------------------- -->
+
+10. Install @testing-library/jest-dom
+
+    npm i -D @testing-library/jest-dom
